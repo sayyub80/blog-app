@@ -24,10 +24,10 @@ export async function POST(request) {
   const cookieStore = await cookies();
   cookieStore.set('admin-token', token, {
     httpOnly: true,
-    secure: true,
+    secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
     path: '/',
-    maxAge: 60 * 60 * 2,
+    maxAge: 60 * 60 * 24* 7, 
   });
 
   return NextResponse.json({ success: true });
