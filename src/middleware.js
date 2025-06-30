@@ -5,7 +5,7 @@ export async function middleware(request) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get('admin-token')?.value;
 
-  // If user is logged in and tries to access /auth/login, redirect to /admin
+  // If logged in and tries to access /auth/login, redirect to /admin
   if (pathname.startsWith('/auth/login') && token) {
     try {
       const secret = new TextEncoder().encode(process.env.JWT_SECRET);
