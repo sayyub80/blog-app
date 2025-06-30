@@ -23,7 +23,7 @@ export default function LoginPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Login failed');
-      await router.push('/admin');
+      await router.push('/admin/posts');
     } catch (err) {
       setError(err.message);
     } finally {
