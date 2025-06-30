@@ -7,10 +7,8 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  // Remove deprecated options: useNewUrlParser and useUnifiedTopology
+  const db = await mongoose.connect(process.env.MONGODB_URI);
 
   connection.isConnected = db.connections[0].readyState;
 }
