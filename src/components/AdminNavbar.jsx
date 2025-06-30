@@ -9,6 +9,7 @@ export default function AdminNavbar() {
   const handleLogout = async () => {
     await fetch('/api/auth/logout', { method: 'POST' });
     router.replace('/auth/login');
+     window.location.reload(); 
   };
 
   return (
